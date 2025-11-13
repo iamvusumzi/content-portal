@@ -26,6 +26,8 @@ interface ContentDialogProps {
   onDelete?: (contentId: number) => void;
 }
 
+const MAX_DESCRIPTION_LENGTH = 255;
+
 const ContentDialog: React.FC<ContentDialogProps> = ({
   open,
   mode,
@@ -154,6 +156,13 @@ const ContentDialog: React.FC<ContentDialogProps> = ({
               fullWidth
               multiline
               rows={3}
+              slotProps={{
+                input: {
+                  inputProps: { maxLength: MAX_DESCRIPTION_LENGTH },
+                },
+                formHelperText: { sx: { textAlign: "right" } },
+              }}
+              helperText={`${formData.desc.length}/${MAX_DESCRIPTION_LENGTH} characters`}
             />
 
             {(role === "USER" || role === "ADMIN") && (
