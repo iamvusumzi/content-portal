@@ -26,7 +26,7 @@ interface ContentDialogProps {
   onDelete?: (contentId: number) => void;
 }
 
-const MAX_DESCRIPTION_LENGTH = 255;
+const MAX_DESCRIPTION_LENGTH = 500;
 
 const ContentDialog: React.FC<ContentDialogProps> = ({
   open,
